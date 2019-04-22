@@ -1,13 +1,11 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 abstract class Display {
-    protected String area;
-    protected ArrayList<Float> temporature;
-    protected ArrayList<Float> humidity;
-    protected ArrayList<Float> barometricPressure;
-    public void update(String area, ArrayList<Float> temporature, ArrayList<Float> humidity,
-                       ArrayList<Float> barometricPressure) {
-        this.area = area;
+    protected LinkedList<Float> temporature;  // NOTE: may need initialization
+    protected LinkedList<Float> humidity;
+    protected LinkedList<Float> barometricPressure;
+    public void update(LinkedList<Float> temporature, LinkedList<Float> humidity,
+                       LinkedList<Float> barometricPressure) {
         this.temporature = temporature;
         this.humidity = humidity;
         this.barometricPressure = barometricPressure;
