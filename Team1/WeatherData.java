@@ -1,33 +1,37 @@
-import java.util.Map;
+import java.util.LinkedList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class WeatherData {
     private String area;
-    private float temporature;
-    private float humidity;
-    private float barometricPressure;
-    private Map<String, Display> displays = new HashMap<String, Display>();
+    private LinkedList<Float> temporature = new LinkedList<Float>();
+    private LinkedList<Float> humidity = new LinkedList<Float>();
+    private LinkedList<Float> barometricPressure = new LinkedList<Float>();
+    private LinkedHashMap<String, Display> displays = new LinkedHashMap<String, Display>();
 
+    public WeatherData(String area) {
+        this.area = area;
+    }
 
     public void attach(String name, Display display) {
         this.displays.put(name, display);
     }
 
-    public void dettach(String name, Display display) {
+    public void detach(String name) {
+        this.displays.remove(name);
     }
 
     public void notify_() {
         for (Map.Entry<String, Display> entry : this.displays.entrySet()) {
-            entry.getValue().update(this.area, this.temporature, this.humidity, this.barometricPressure);
+            entry.getValue().update(this.temporature, this.humidity, this.barometricPressure);
         }
     }
-    public void update(String area, float temporature, float humidity, float barometricPressure) {
-        this.area = area;
-        this.temporature = temporature;
-        this.humidity = humidity;
-        this.barometricPressure = barometricPressure;
+    public void update(Float temporature, Float humidity, Float barometricPressure) {
+        this.temporature.add(temporature);
+        this.humidity.add(humidity);
+        this.barometricPressure.add(barometricPressure);
         this.notify_();
     }
 
 }
-

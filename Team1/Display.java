@@ -1,15 +1,15 @@
-import java.util.Map;
+import java.util.LinkedList;
 
 abstract class Display {
-    protected String area;
-    protected float temporature;
-    protected float humidity;
-    protected float barometricPressure;
-    public void update(String area, float temporature, float humidity, float barometricPressure) {
-        this.area = area;
+    protected LinkedList<Float> temporature;  // NOTE: may need initialization
+    protected LinkedList<Float> humidity;
+    protected LinkedList<Float> barometricPressure;
+    public void update(LinkedList<Float> temporature, LinkedList<Float> humidity,
+                       LinkedList<Float> barometricPressure) {
         this.temporature = temporature;
         this.humidity = humidity;
         this.barometricPressure = barometricPressure;
+        this.display();
     }
     public abstract void display();
 
