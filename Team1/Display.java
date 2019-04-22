@@ -1,11 +1,12 @@
-import java.util.Map;
+import java.util.ArrayList;
 
 abstract class Display {
     protected String area;
-    protected float temporature;
-    protected float humidity;
-    protected float barometricPressure;
-    public void update(String area, float temporature, float humidity, float barometricPressure) {
+    protected ArrayList<Float> temporature;
+    protected ArrayList<Float> humidity;
+    protected ArrayList<Float> barometricPressure;
+    public void update(String area, ArrayList<Float> temporature, ArrayList<Float> humidity,
+                       ArrayList<Float> barometricPressure) {
         this.area = area;
         this.temporature = temporature;
         this.humidity = humidity;
