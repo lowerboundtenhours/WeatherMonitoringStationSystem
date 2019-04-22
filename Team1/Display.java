@@ -9,6 +9,7 @@ abstract class Display {
         this.temporature = temporature;
         this.humidity = humidity;
         this.barometricPressure = barometricPressure;
+        this.display();
     }
     public abstract void display();
 

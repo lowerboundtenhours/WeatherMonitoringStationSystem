@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Main {
-    public static HashMap<String, WeatherData> weatherDatas;
+    public static HashMap<String, WeatherData> weatherDatas = new HashMap<>();
 
     private static Display newDisplay(String type) {
         if (type.equals("Current"))
